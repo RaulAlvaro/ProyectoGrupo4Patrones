@@ -22,12 +22,11 @@
         <div class="navegacion">
             <nav>
 		<ul>
-		    <li><a href="recargarTarjetas.jsp">Visualizar turnos</a></li>
+		    <li><a href="verturnos.jsp">Visualizar turnos</a></li>
                     <li class="xd"><a href="">ASISTENTE DE RECURSOS HUMANOS </a></li>
 		</ul>
             </nav>
 	</div>
-        
         
     </body>
 </html>
