@@ -23,8 +23,7 @@
             <nav>
 		<ul>
 		    <li><a href="recargarTarjetas.jsp">Recargar Tarjeta</a></li>
-		    <li><a href="">Actualizar Clientes </a></li>
-		    <li><a href="">Actualizar Tarjetas </a></li>
+		    
                     <li class="xd"><a href="">ASISTENTE DE RECARGAS </a></li>
 		</ul>
             </nav>

@@ -1,0 +1,46 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/11/2018, 01:26:36 PM
+    Author     : RAUL
+*/
+
+body{
+    font-family: sans-serif;
+    font-size: 11pt;
+    background-image: url(../imagen/sistemaintegrado.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+table{
+    margin-top: 50px;
+}
+
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    opacity: 0.95;
+}
+th,td{
+    padding: 10px;
+    text-align: center;
+}
+th{
+    background-color: #a70000;
+    color:white;
+}
+tr:nth-child(even){
+    background-color: #e8e8e8;
+}
+tr:nth-child(odd){
+    background-color: white;
+}
+
+#header{
+    background-color: #005cb7;
+    color:white;
+}

@@ -1,0 +1,63 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20/11/2018, 11:29:38 AM
+    Author     : ABEL
+*/
+body{
+    background-image: url(../imagen/sistemaintegrado.jpg);
+    margin:0;
+    padding: 0;
+    background-size: cover;
+    font-family: sans-serif;
+
+}
+
+h1{
+    margin: 0 8px 20px;
+    padding: 0;
+    color: #fff;
+    font-size: 24px;
+}
+
+.box{
+    position: absolute;
+    top:30px;
+    left:300px;
+    transform:translate(-50%,50%);
+}
+
+input{
+    position: relative;
+    display: inline-block;
+    font-size:20px;
+    box-sizing: border-box;
+    transition: .5s;
+}
+
+input[type="text"]{
+    background: #fff;
+    width:340px;
+    height:50px;
+    border:none;
+    outline: none;
+    padding: 0 25px;
+    border-radius:  25px 0 0 25px;
+}
+
+
+input[type="submit"]{
+    position:relative;
+    left:-5px;
+    width: 150px;
+    height:50px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    background: #ffc107;
+    color:#fff;
+    border-radius: 0 25px 25px 0;
+}

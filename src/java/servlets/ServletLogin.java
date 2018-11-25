@@ -88,6 +88,9 @@ public class ServletLogin extends HttpServlet {
         } else if(eltipowe.equalsIgnoreCase("3")){
             getServletConfig().getServletContext().getRequestDispatcher("/vistaAsistentePersonal.jsp").forward(request,response);
         }
+          else if(eltipowe.equalsIgnoreCase("5")){
+            getServletConfig().getServletContext().getRequestDispatcher("/VistaAdministrador.jsp").forward(request,response);
+        }
         else{
             out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
             out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");

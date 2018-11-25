@@ -5,13 +5,13 @@
  */
 package servlets;
 
-import dao.DAOTurnos;
-import dao.DAOUsuario;
-import entidades.Turnos;
+import dao.DAOLinea;
+import dao.DAOVehiculo;
+import entidades.Vehiculo;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author RAUL
  */
-@WebServlet(name = "ServletTurnos", urlPatterns = {"/ServletTurnos"})
-public class ServletTurnos extends HttpServlet {
+@WebServlet(name = "ServletInfTransp", urlPatterns = {"/ServletInfTransp"})
+public class ServletInfTransp extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -67,46 +67,40 @@ public class ServletTurnos extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
-        int idUsuario;
-
-        String dniconductor = request.getParameter("dni");
-        System.out.println(dniconductor);
-        DAOUsuario daou = new DAOUsuario();
-
-        idUsuario = daou.obtenerIdUsuarioByDni(dniconductor);
-
-        if (idUsuario == 0) {
-            PrintWriter out = response.getWriter();
-            out.println("<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>");
-            out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>");
-            out.println("<script>");
-            out.println(" $(document).ready(function(){");
-            out.println("swal ('DNI NO ENCONTRADO','','error');");
-            out.println(" });");
-            out.println("</script>");
-            RequestDispatcher rd = request.getRequestDispatcher("verturnos.jsp");
-            rd.include(request, response);
-
-        } else {
-            DAOTurnos daoturnos = new DAOTurnos();
-            List<Turnos> listaturnos = daoturnos.obtenerTurnosporDNI(idUsuario);
-
-            for (Turnos turno : listaturnos) {
-                System.out.println(turno.getFecha());
-                System.out.println(turno.getHorainicio());
-                System.out.println(turno.getHorafin());
+        
+        String tipotransporte = request.getParameter("tipotransporte");
+        System.out.println(tipotransporte);
+        DAOLinea daolinea = new DAOLinea();
+        List<Integer> listalineas = daolinea.idLineaByIdTipoTrans(tipotransporte);
+        
+        DAOVehiculo daovehiculo = new DAOVehiculo();
+        
+        List<Vehiculo> listavehiculosinterm = new ArrayList<Vehiculo>();
+        List<Vehiculo> listavehiculosfinal = new ArrayList<Vehiculo>();
+        
+        for (Integer linea : listalineas) {
+            listavehiculosinterm = daovehiculo.obtenerVehiculosporIdLinea(linea);
+            for (Vehiculo vehiculo : listavehiculosinterm) {
+                listavehiculosfinal.add(vehiculo);
             }
-
-            request.setAttribute("listaTurnos", listaturnos);
-            getServletConfig().getServletContext().getRequestDispatcher("/listarTurnos.jsp").forward(request, response);
-
         }
-
-        System.out.println("El id del usuario es: " + idUsuario);
-
+        
+        for (Vehiculo vehiculo : listavehiculosfinal) {
+            System.out.println(vehiculo.getPlaca());
+            
+        }
+        
+        request.setAttribute("listaVehiculos", listavehiculosfinal);
+        getServletConfig().getServletContext().getRequestDispatcher("/listarVehiculos.jsp").forward(request, response);
+        
+        
     }
 
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
     @Override
     public String getServletInfo() {
         return "Short description";

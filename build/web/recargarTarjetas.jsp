@@ -26,9 +26,9 @@
                 <option value="off">OFF</option>
             </select> 
             
-                <input name="idTarjeta" class="input" type="text" placeholder="&#128100;  ID TARJETA" required autofocus>
+                <input name="idTarjeta" class="input" type="text" placeholder="&#128100;  Ingresar ID Tarjeta" required autofocus>
             
-            <input name="idUsuario" class="input" type="text" placeholder="&#128100;  ID USUARIO" required autofocus>
+            <input name="idUsuario" class="input" type="text" placeholder="&#128100;  Ingresar ID Usuario" required autofocus>
             
             <select name="tipo" class="input">
                 <option value="normal">Normal</option>
@@ -36,7 +36,7 @@
                 <option value="escolar">Escolar</option>
             </select> 
             
-            <input name="monto" class="input" type="number" placeholder="  MONTO" required>
+            <input name="monto" class="input" type="number" placeholder="Ingresar Monto" required>
             
             <div class="btn__form">
             	<input class="btn__submit" type="submit" value="RECARGAR">
